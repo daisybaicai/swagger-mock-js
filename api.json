@@ -1,0 +1,1340 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "接口文档",
+    "version": "1.0",
+    "title": "消纳交易平台"
+  },
+  "host": "2.0.1.4:8088",
+  "basePath": "/",
+  "tags": [
+    { "name": "交易模块", "description": "Transation Controller" },
+    { "name": "用户模块", "description": "User Controller" },
+    { "name": "管理员模块", "description": "Admin Controller" }
+  ],
+  "paths": {
+    "/admin/Auditing": {
+      "post": {
+        "tags": ["管理员模块"],
+        "summary": "管理员审核接口",
+        "operationId": "AuditingUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/RationingResponsibility": {
+      "post": {
+        "tags": ["管理员模块"],
+        "summary": "修改配给责任",
+        "operationId": "RationingResponsibilityUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RationingResponsibilityDto",
+              "originalRef": "RationingResponsibilityDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/consumptionProofIssue": {
+      "post": {
+        "tags": ["管理员模块"],
+        "summary": "消纳核发",
+        "operationId": "consumptionProofIssueUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/findUser": {
+      "get": {
+        "tags": ["管理员模块"],
+        "summary": "获取用户列表",
+        "operationId": "GetUserUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Params",
+              "originalRef": "Params"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«分页返回«UserinfoVo»»",
+              "originalRef": "基本返回«分页返回«UserinfoVo»»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/getRationingResponsibility": {
+      "post": {
+        "tags": ["管理员模块"],
+        "summary": "配给责任",
+        "operationId": "getRationingResponsibilityUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«ResponsibilityVo»",
+              "originalRef": "基本返回«ResponsibilityVo»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/bilateralDeals": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "挂牌",
+        "operationId": "bilateralDealsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "挂牌",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TranstationDto",
+              "originalRef": "TranstationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/delisting": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "摘牌",
+        "operationId": "delistingUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "摘牌",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TranstationDto",
+              "originalRef": "TranstationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/findOrder": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "点根据交易信息id查看订单详情",
+        "operationId": "findOrderUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "点根据交易信息id查看订单详情",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TranstationDto",
+              "originalRef": "TranstationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«OrderVo»",
+              "originalRef": "基本返回«OrderVo»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/getBilateralDeals": {
+      "get": {
+        "tags": ["交易模块"],
+        "summary": "获取挂牌交易列表",
+        "operationId": "getBilateralDealsUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "查询字段",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TransationParams",
+              "originalRef": "TransationParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«分页返回«TransationVo»»",
+              "originalRef": "基本返回«分页返回«TransationVo»»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/getUnilateralDeals": {
+      "get": {
+        "tags": ["交易模块"],
+        "summary": "双边交易列表，即点对点交易",
+        "operationId": "getUnilateralDealsUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransationParams",
+              "originalRef": "TransationParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«分页返回«TransationVo»»",
+              "originalRef": "基本返回«分页返回«TransationVo»»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/offer": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "撮合交易的报价",
+        "operationId": "offerUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "撮合交易的报价",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TranstationDto",
+              "originalRef": "TranstationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/operateDeals": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "点对点 接受/拒绝交易",
+        "operationId": "operateDealsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "点对点 接受/拒绝交易",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/OperateDealsDto",
+              "originalRef": "OperateDealsDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/transation/unilateralDeals": {
+      "post": {
+        "tags": ["交易模块"],
+        "summary": "点对点交易申请",
+        "operationId": "unilateralDealsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "申请点对点交易",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TranstationDto",
+              "originalRef": "TranstationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/delUserinfo": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "删除用户",
+        "operationId": "delUserinfoUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "用户删除",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/getUserinfo": {
+      "get": {
+        "tags": ["用户模块"],
+        "summary": "获取用户信息",
+        "operationId": "getUserinfoUsingGET",
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«UserinfoVo»",
+              "originalRef": "基本返回«UserinfoVo»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "用户登陆(身份认证)",
+        "operationId": "loginUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "用户登陆",
+            "required": false,
+            "schema": { "$ref": "#/definitions/登陆", "originalRef": "登陆" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«TokenVO»",
+              "originalRef": "基本返回«TokenVO»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/profiles": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "信息填报",
+        "operationId": "addProfilesUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "信息填报",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«string»",
+              "originalRef": "基本返回«string»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "用户注册",
+        "operationId": "registerUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "用户注册",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/RegisterDto",
+              "originalRef": "RegisterDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«RegisterVo»",
+              "originalRef": "基本返回«RegisterVo»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/sign": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "生成在线签名",
+        "operationId": "signUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "在线签名",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SignParam",
+              "originalRef": "SignParam"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«SingVO»",
+              "originalRef": "基本返回«SingVO»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/updateMoney": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "修改金额",
+        "operationId": "updateMoneyUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "修改金额",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«string»",
+              "originalRef": "基本返回«string»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/updateProfiles": {
+      "post": {
+        "tags": ["用户模块"],
+        "summary": "信息修改",
+        "operationId": "updateProfilesUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "信息修改",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UserDto",
+              "originalRef": "UserDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/基本返回«Void»",
+              "originalRef": "基本返回«Void»"
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "OperateDealsDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易列表id"
+        },
+        "transactionHash": {
+          "type": "string",
+          "description": "交易hash,前端不用传"
+        },
+        "transactionStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作代码"
+        }
+      },
+      "title": "OperateDealsDto"
+    },
+    "OrderVo": {
+      "type": "object",
+      "properties": {
+        "buyerCode": { "type": "string", "description": "买方id" },
+        "consumptionProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "消纳凭证数量"
+        },
+        "greenProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "绿色凭证数量"
+        },
+        "id": { "type": "integer", "description": "id" },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "description": "交易单价"
+        },
+        "orderId": { "type": "string", "description": "订单编号" },
+        "orderType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单类型"
+        },
+        "sellerCode": { "type": "string", "description": "卖方id" },
+        "time": {
+          "type": "string",
+          "format": "date",
+          "description": "交易生成时间"
+        },
+        "txHash": { "type": "string", "description": "交易哈希" }
+      },
+      "title": "OrderVo"
+    },
+    "Params": {
+      "type": "object",
+      "properties": {
+        "creditId": {
+          "type": "string",
+          "description": "企业税号/统一社会信用代码"
+        },
+        "enterpriseName": { "type": "string", "description": "企业名称" },
+        "pageNum": { "type": "integer", "format": "int32" },
+        "pageSize": { "type": "integer", "format": "int32" },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "账户审核状态"
+        }
+      },
+      "title": "Params"
+    },
+    "RationingResponsibilityDto": {
+      "type": "object",
+      "properties": {
+        "consumptionProofNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "消纳凭证数量"
+        },
+        "countNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "总量"
+        },
+        "greenProofNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "绿色凭证数量"
+        }
+      },
+      "title": "RationingResponsibilityDto"
+    },
+    "RegisterDto": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "用户id" },
+        "passWord": { "type": "string", "description": "用户密码" },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "用户角色"
+        },
+        "userName": { "type": "string", "description": "用户名称" }
+      },
+      "title": "RegisterDto"
+    },
+    "RegisterVo": {
+      "type": "object",
+      "properties": {
+        "priKey": { "type": "string", "description": "私钥" },
+        "pubKey": { "type": "string", "description": "公钥" }
+      },
+      "title": "RegisterVo"
+    },
+    "ResponsibilityVo": {
+      "type": "object",
+      "properties": {
+        "consumptionProofNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "消纳凭证数量"
+        },
+        "countNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "总量"
+        },
+        "greenProofNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "绿色凭证数量"
+        }
+      },
+      "title": "ResponsibilityVo"
+    },
+    "SignParam": {
+      "type": "object",
+      "properties": {
+        "priKey": { "type": "string", "description": "私钥" },
+        "pubKey": { "type": "string", "description": "公钥" }
+      },
+      "title": "SignParam"
+    },
+    "SingVO": {
+      "type": "object",
+      "properties": {
+        "originalData": { "type": "string", "description": "原始数据" },
+        "singData": { "type": "string", "description": "签名数据" }
+      },
+      "title": "SingVO"
+    },
+    "TokenVO": {
+      "type": "object",
+      "properties": {
+        "role": { "type": "integer", "format": "int32", "description": "role" },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "账户状态"
+        },
+        "token": { "type": "string", "description": "token" }
+      },
+      "title": "TokenVO"
+    },
+    "TransationParams": {
+      "type": "object",
+      "properties": {
+        "creditId": {
+          "type": "string",
+          "description": "企业税号/统一社会信用代码"
+        },
+        "pageNum": { "type": "integer", "format": "int32" },
+        "pageSize": { "type": "integer", "format": "int32" },
+        "proofType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易证件类型"
+        },
+        "transactionStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易状态"
+        },
+        "transation": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易方式"
+        },
+        "trationType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易类型"
+        }
+      },
+      "title": "TransationParams"
+    },
+    "TransationVo": {
+      "type": "object",
+      "properties": {
+        "buyCreditId": {
+          "type": "string",
+          "description": "购买者企业税号/统一社会信用代码"
+        },
+        "buyEnterpriseName": {
+          "type": "string",
+          "description": "买方企业名称"
+        },
+        "buyUserCode": { "type": "string", "description": "买方code" },
+        "id": { "type": "integer", "format": "int32", "description": "id" },
+        "num": { "type": "number", "format": "double", "description": "数量" },
+        "operatingCreditId": {
+          "type": "string",
+          "description": "操作的企业ID"
+        },
+        "proofType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易证件类型"
+        },
+        "sellCreditId": {
+          "type": "string",
+          "description": "出售者企业税号/统一社会信用代码"
+        },
+        "sellEnterpriseName": {
+          "type": "string",
+          "description": "卖方企业名称"
+        },
+        "sellUserCode": { "type": "string", "description": "卖方code" },
+        "transactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "交易时间"
+        },
+        "transactionHash": { "type": "string", "description": "交易哈希" },
+        "transactionStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易状态"
+        },
+        "transation": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易方式"
+        },
+        "trationType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易类型"
+        },
+        "unitPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "单价"
+        }
+      },
+      "title": "TransationVo"
+    },
+    "TranstationDto": {
+      "type": "object",
+      "properties": {
+        "buyCreditId": {
+          "type": "string",
+          "description": "购买者企业税号/统一社会信用代码"
+        },
+        "buyEnterpriseName": {
+          "type": "string",
+          "description": "买方企业名称"
+        },
+        "buyUserCode": { "type": "string", "description": "买方code" },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "待操作企业码"
+        },
+        "id": { "type": "integer", "format": "int32", "description": "id" },
+        "num": { "type": "number", "format": "double", "description": "数量" },
+        "operatingCreditId": {
+          "type": "string",
+          "description": "待操作企业码"
+        },
+        "proofType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易证件类型"
+        },
+        "sellCreditId": {
+          "type": "string",
+          "description": "出售者企业税号/统一社会信用代码"
+        },
+        "sellEnterpriseName": {
+          "type": "string",
+          "description": "卖方企业名称"
+        },
+        "sellUserCode": { "type": "string", "description": "卖方code" },
+        "transactionHash": {
+          "type": "string",
+          "description": "交易哈希，前端不用传"
+        },
+        "transactionStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易状态"
+        },
+        "transation": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易方式"
+        },
+        "trationType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "交易类型"
+        },
+        "unitPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "单价"
+        }
+      },
+      "title": "TranstationDto"
+    },
+    "UserDto": {
+      "type": "object",
+      "properties": {
+        "consumptionProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "消纳凭证数量"
+        },
+        "creditId": {
+          "type": "string",
+          "description": "企业税号/统一社会信用代码"
+        },
+        "enterpriseName": { "type": "string", "description": "企业名称" },
+        "greenProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "绿色凭证数量"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "description": "人民币"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "账户审核状态"
+        },
+        "userCode": { "type": "string", "description": "用户标识" }
+      },
+      "title": "UserDto"
+    },
+    "UserinfoVo": {
+      "type": "object",
+      "properties": {
+        "consumptionProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "消纳凭证数量"
+        },
+        "creditId": {
+          "type": "string",
+          "description": "企业税号/统一社会信用代码"
+        },
+        "enterpriseAddress": { "type": "string", "description": "企业地址" },
+        "enterpriseName": { "type": "string", "description": "企业名称" },
+        "greenProof": {
+          "type": "integer",
+          "format": "int32",
+          "description": "绿色凭证数量"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "用户id（用户id）"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "description": "金额"
+        },
+        "passWord": { "type": "string", "description": "用户密码）" },
+        "privateKey": { "type": "string", "description": "用户私钥" },
+        "publicKey": { "type": "string", "description": "用户公钥" },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "账户审核状态"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "用户类型(管理员,普通用户)"
+        },
+        "userCode": { "type": "string", "description": "用户编号" },
+        "userName": { "type": "string", "description": "用户名" }
+      },
+      "title": "UserinfoVo"
+    },
+    "分页返回«TransationVo»": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "查出的资源条目数"
+        },
+        "items": {
+          "type": "array",
+          "description": "数据",
+          "items": {
+            "$ref": "#/definitions/TransationVo",
+            "originalRef": "TransationVo"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总条数"
+        }
+      },
+      "title": "分页返回«TransationVo»"
+    },
+    "分页返回«UserinfoVo»": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "查出的资源条目数"
+        },
+        "items": {
+          "type": "array",
+          "description": "数据",
+          "items": {
+            "$ref": "#/definitions/UserinfoVo",
+            "originalRef": "UserinfoVo"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总条数"
+        }
+      },
+      "title": "分页返回«UserinfoVo»"
+    },
+    "基本返回«OrderVo»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/OrderVo",
+          "originalRef": "OrderVo"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«OrderVo»"
+    },
+    "基本返回«RegisterVo»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/RegisterVo",
+          "originalRef": "RegisterVo"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«RegisterVo»"
+    },
+    "基本返回«ResponsibilityVo»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/ResponsibilityVo",
+          "originalRef": "ResponsibilityVo"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«ResponsibilityVo»"
+    },
+    "基本返回«SingVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/SingVO",
+          "originalRef": "SingVO"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«SingVO»"
+    },
+    "基本返回«TokenVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/TokenVO",
+          "originalRef": "TokenVO"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«TokenVO»"
+    },
+    "基本返回«UserinfoVo»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/UserinfoVo",
+          "originalRef": "UserinfoVo"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«UserinfoVo»"
+    },
+    "基本返回«Void»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«Void»"
+    },
+    "基本返回«string»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": { "type": "string", "description": "数据" },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«string»"
+    },
+    "基本返回«分页返回«TransationVo»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/分页返回«TransationVo»",
+          "originalRef": "分页返回«TransationVo»"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«分页返回«TransationVo»»"
+    },
+    "基本返回«分页返回«UserinfoVo»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/分页返回«UserinfoVo»",
+          "originalRef": "分页返回«UserinfoVo»"
+        },
+        "msg": { "type": "string", "description": "消息" }
+      },
+      "title": "基本返回«分页返回«UserinfoVo»»"
+    },
+    "登陆": {
+      "type": "object",
+      "properties": {
+        "data": { "type": "string", "description": "原始数据" },
+        "publicKey": { "type": "string", "description": "公钥（相当于账号）" },
+        "signedData": { "type": "string", "description": "签名后数据" }
+      },
+      "title": "登陆"
+    }
+  }
+}
